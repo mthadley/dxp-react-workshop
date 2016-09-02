@@ -1,0 +1,7 @@
+Bundle-SymbolicName: todo-api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.todo.exception,\
+	com.liferay.todo.model,\
+	com.liferay.todo.service,\
+	com.liferay.todo.service.persistence
