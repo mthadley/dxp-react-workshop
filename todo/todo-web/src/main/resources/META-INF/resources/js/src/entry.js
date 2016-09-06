@@ -1,10 +1,12 @@
 import React from 'react';
 import {render} from 'react-dom';
-import Todo from './components/Todo';
+
+import App from './components/App';
+// import Todo from './components/Todo'; // Final Product
 
 window.App = (node) => {
 	render(
-		<Todo />,
+		<App />,
 		node
 	);
 }
