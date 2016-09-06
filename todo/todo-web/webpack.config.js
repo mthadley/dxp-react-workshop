@@ -25,9 +25,9 @@ module.exports = {};
 // var path = require('path');
 // var webpack = require('webpack');
 //
-// var JS_PUBLIC = '/o/todo-app-webpack-1.0.0/js/dist/';
+// var DIST_DIR = '/o/todo-app-webpack-1.0.0/js/dist/';
 //
-// var JS_SRC = path.resolve(__dirname, 'src/main/resources/META-INF/resources/js/src/');
+// var JS_DIR = path.resolve(__dirname, 'src/main/resources/META-INF/resources/js/');
 //
 // module.exports = {
 // 	devServer: {
@@ -36,21 +36,21 @@ module.exports = {};
 // 		proxy: {
 // 			'**': 'http://0.0.0.0:8080'
 // 		},
-// 		publicPath: JS_PUBLIC
+// 		publicPath: DIST_DIR
 // 	},
 // 	entry: [
 // 		'webpack-dev-server/client?http://0.0.0.0:3000',
 // 		'webpack/hot/only-dev-server',
-// 		path.resolve(JS_SRC, 'entry.js')
+// 		path.resolve(JS_DIR, '/src/entry.js')
 // 	],
 // 	module: {
 // 		loaders: [
 // 			{
-// 				include: JS_SRC,
+// 				include: JS_DIR,
 // 				loader: 'react-hot'
 // 			},
 // 			{
-// 				include: JS_SRC,
+// 				include: JS_DIR,
 // 				loader: 'babel',
 // 				query: {
 // 					presets: ['es2015', 'react']
@@ -61,7 +61,7 @@ module.exports = {};
 // 	output: {
 // 		filename: 'bundle.js',
 // 		path: './src/main/resources/META-INF/resources/js/dist',
-// 		publicPath: JS_PUBLIC
+// 		publicPath: DIST_DIR
 // 	},
 // 	plugins: [
 // 		new webpack.HotModuleReplacementPlugin()
