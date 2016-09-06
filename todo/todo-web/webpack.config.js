@@ -1,29 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+module.exports = {};
 
 
 
@@ -76,7 +51,7 @@
 // 			},
 // 			{
 // 				include: JS_SRC,
-// 				loader: ['babel'],
+// 				loader: 'babel',
 // 				query: {
 // 					presets: ['es2015', 'react']
 // 				}
