@@ -8,7 +8,7 @@ var webpack = require('webpack');
 
 var DIST_DIR = '/o/todo-app-webpack-1.0.0/js/dist/';
 
-var JS_DIR = path.resolve(__dirname, 'src/main/resources/META-INF/resources/js/');
+var JS_DIR = path.resolve(__dirname, 'src/main/resources/META-INF/resources/js');
 
 module.exports = {
 	devServer: {
@@ -22,7 +22,7 @@ module.exports = {
 	entry: [
 		'webpack-dev-server/client?http://0.0.0.0:3000',
 		'webpack/hot/only-dev-server',
-		path.resolve(JS_DIR, '/src/entry.js')
+		path.resolve(JS_DIR, 'src/entry.js')
 	],
 	module: {
 		loaders: [
@@ -52,6 +52,27 @@ module.exports = {
 
 ### build.gradle
 ```gradle
+dependencies {
+	compile group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.0.0"
+	compile group: "com.liferay.portal", name: "com.liferay.util.taglib", version: "2.0.0"
+	compile group: "javax.portlet", name: "portlet-api", version: "2.0"
+	compile group: "javax.servlet", name: "servlet-api", version: "2.5"
+	compile group: "jstl", name: "jstl", version: "1.2"
+	compile group: "org.osgi", name: "org.osgi.compendium", version: "5.0.0"
+}
+
+buildscript {
+	dependencies {
+		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.node", version: "latest.release"
+	}
+
+	repositories {
+		maven {
+			url "https://cdn.lfrs.sl/repository.liferay.com/nexus/content/groups/public"
+		}
+	}
+}
+
 import com.liferay.gradle.plugins.node.tasks.ExecuteNodeTask
 
 task buildWebpack(type: ExecuteNodeTask)
