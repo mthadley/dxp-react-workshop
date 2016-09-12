@@ -4,7 +4,6 @@
 
 <script src="/o/todo-app-webpack-1.0.0/js/src/entry.js"></script>
 
-
 <%-- Final Result --%>
 
 <%-- <div id="todoAppWebpack"></div>

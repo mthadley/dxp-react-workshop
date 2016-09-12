@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Todo extends Component {
+class TodoWithAPI extends Component {
 	constructor(props) {
 		super(props)
 
@@ -14,12 +14,29 @@ class Todo extends Component {
 		this.handleInputSubmit = this.handleInputSubmit.bind(this);
 	}
 
+	componentWillMount() {
+		Liferay.Service(
+			'/todo.todo/get-todos',
+			items => {
+				this.setState({items});
+			}
+		)
+	}
+
 	completeItem(index) {
 		return () => {
 			const items = this.state.items.map(
 				(item, i) => {
 					if (i === index) {
 						item.done = !item.done;
+
+						Liferay.Service(
+							'/todo.todo/set-done',
+							{
+								done: item.done,
+								id: item.todoId
+							}
+						);
 					}
 
 					return item;
@@ -36,17 +53,21 @@ class Todo extends Component {
 
 	handleInputSubmit(event) {
 		if (event.key === 'Enter') {
-			const item = {
-				description: event.target.value,
-				done: false
-			};
-
-			this.setState(
+			Liferay.Service(
+				'/todo.todo/add-todo',
 				{
-					inputValue: '',
-					items: [...this.state.items, item]
+					description: event.target.value
+				},
+				(item) => {
+					this.setState(
+						{
+							inputValue: '',
+							items: [...this.state.items, item]
+						}
+					)
 				}
-			)
+			);
+
 		}
 	}
 
@@ -83,4 +104,4 @@ class Todo extends Component {
 	}
 }
 
-export default Todo;
+export default TodoWithAPI;
