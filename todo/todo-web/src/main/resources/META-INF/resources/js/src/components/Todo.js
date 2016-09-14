@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Todo extends Component {
 	constructor(props) {
-		super(props)
+		super(props);
 
 		this.state = {
 			inputValue: '',
@@ -27,7 +27,7 @@ class Todo extends Component {
 			);
 
 			this.setState({items});
-		}
+		};
 	}
 
 	handleInputChange(event) {
@@ -46,7 +46,7 @@ class Todo extends Component {
 					inputValue: '',
 					items: [...this.state.items, item]
 				}
-			)
+			);
 		}
 	}
 

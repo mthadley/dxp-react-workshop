@@ -64,10 +64,9 @@ class TodoWithAPI extends Component {
 							inputValue: '',
 							items: [...this.state.items, item]
 						}
-					)
+					);
 				}
 			);
-
 		}
 	}
 
