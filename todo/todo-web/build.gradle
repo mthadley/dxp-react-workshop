@@ -21,18 +21,18 @@ buildscript {
 
 
 
-// Final Result
+// Webpack Build
 
-// import com.liferay.gradle.plugins.node.tasks.ExecuteNodeTask
-//
-// task buildWebpack(type: ExecuteNodeTask)
-//
-// buildWebpack {
-// 	dependsOn npmInstall
-//
-// 	args = "./node_modules/webpack/bin/webpack.js"
-// }
-//
-// classes {
-// 	dependsOn buildWebpack
-// }
+import com.liferay.gradle.plugins.node.tasks.ExecuteNodeTask
+
+task buildWebpack(type: ExecuteNodeTask)
+
+buildWebpack {
+	dependsOn npmInstall
+
+	args = "./node_modules/webpack/bin/webpack.js"
+}
+
+classes {
+	dependsOn buildWebpack
+}
