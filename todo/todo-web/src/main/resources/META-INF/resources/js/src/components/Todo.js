@@ -14,6 +14,15 @@ class Todo extends Component {
 		this.handleInputSubmit = this.handleInputSubmit.bind(this);
 	}
 
+	// componentWillMount() {
+	// 	Liferay.Service(
+	// 		'/todo.todo/get-todos',
+	// 		items => {
+	// 			this.setState({items});
+	// 		}
+	// 	)
+	// }
+
 	completeItem(index) {
 		return () => {
 			const items = this.state.items.map(
@@ -49,6 +58,25 @@ class Todo extends Component {
 			);
 		}
 	}
+
+	// handleInputSubmit(event) {
+	// 	if (event.key === 'Enter') {
+	// 		Liferay.Service(
+	// 			'/todo.todo/add-todo',
+	// 			{
+	// 				description: event.target.value
+	// 			},
+	// 			(item) => {
+	// 				this.setState(
+	// 					{
+	// 						inputValue: '',
+	// 						items: [...this.state.items, item]
+	// 					}
+	// 				)
+	// 			}
+	// 		);
+	// 	}
+	// }
 
 	render() {
 		const {inputValue, items} = this.state;
